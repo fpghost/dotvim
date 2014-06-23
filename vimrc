@@ -19,6 +19,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'ervandew/supertab.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,6 +64,10 @@ set expandtab
 
 "Nerdtree, filebrowser
 map <F2> :NERDTreeToggle<CR>
+
+"Supertab (tab completion) to complement
+"jedi
+let g:SuperTabDefaultCompletionType = "context"
 
 " Python-mode
 " Activate rope
