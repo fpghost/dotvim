@@ -120,3 +120,12 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
+
+" quicker jump to normal mode(nb ctrl c works too)
+inoremap kj <Esc>
+
+" Turn off arrow keys to force learning hjkl!
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>        
