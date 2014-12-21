@@ -20,6 +20,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'ervandew/supertab.git'
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'einars/js-beautify'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -124,8 +126,30 @@ nnoremap <C-H> <C-W>h
 " quicker jump to normal mode(nb ctrl c works too)
 inoremap kj <Esc>
 
-" Turn off arrow keys to force learning hjkl!
-inoremap <Left>  <NOP>
-inoremap <Right> <NOP>
-inoremap <Up>    <NOP>
-inoremap <Down>  <NOP>        
+" Toggle paste mode
+set pastetoggle=<Leader>p
+
+" Disable arrow keys to train me to use hjkl
+" inoremap  <Up>     <NOP>
+" inoremap  <Down>   <NOP>
+" inoremap  <Left>   <NOP>
+" inoremap  <Right>  <NOP>
+" noremap   <Up>     <NOP>
+" noremap   <Down>   <NOP>
+" noremap   <Left>   <NOP>
+" noremap   <Right>  <NOP>
+
+".vimrc (jb js beautify, hb html beautify, cb css beautify)(but these will
+"only define these commands if filetype matches.....I want all commands when
+"file is html for mix of html/js/css)
+"autocmd FileType javascript vnoremap <buffer>  <Leader>jb :call RangeJsBeautify()<cr>
+"autocmd FileType html vnoremap <buffer> <Leader>hb :call RangeHtmlBeautify()<cr>
+"autocmd FileType css vnoremap <buffer> <Leader>cb :call RangeCSSBeautify()<cr>
+" To use these visually select area of interest and then type e.g. :Rjb or
+" :Rhb or :Rhc depending if js, html or css. Be careful when django is mixed
+" with js inline...it doesnt work well. For html you can also just (assuming
+" :filetype indent on, :set smartindent) visually select then press '=' to
+" tidy
+:command -range Rjb <line1>,<line2>call RangeJsBeautify()
+:command -range Rhb <line1>,<line2>call RangeHtmlBeautify()
+:command -range Rcb <line1>,<line2>call RangeCSSBeautify()
