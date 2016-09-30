@@ -44,7 +44,7 @@ augroup vimrc_autocmds
     autocmd!
     " highlight characters past column 120
     autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType python match Excess /\%120v.*/
+    autocmd FileType python match Excess /\%160v.*/
     autocmd FileType python set nowrap
     augroup END
 
@@ -65,7 +65,7 @@ set shiftwidth=4
 set expandtab
 
 "Nerdtree, filebrowser
-map <F2> :NERDTreeToggle<CR>
+map <Leader>t :NERDTreeToggle<CR>
 
 "Supertab (tab completion) to complement
 "jedi
@@ -96,6 +96,11 @@ let g:pymode_lint = 1
 " Auto check on save
 let g:pymode_lint_checkers = ["pep8","pyflakes"]
 let g:pymode_lint_write = 1
+" don't warn me about the long lines, which would just clog up error space
+let g:pymode_lint_ignore = "E501"
+" The big red vertical warning bar
+let g:pymode_options_max_line_length = 79
+let g:pymode_options_colorcolumn = 1
 
 " Support virtualenv
 let g:pymode_virtualenv = 1
@@ -110,8 +115,9 @@ let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
-" Don't autofold code
-let g:pymode_folding = 0
+" autofold code (1 or 0)
+" use zo/zc to open/close folds
+let g:pymode_folding = 1
 
 " Quicker save \s
 " nb shift zz too
