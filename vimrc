@@ -60,9 +60,8 @@ set t_Co=256
 set background=dark
 
 " I prefer spaces to tabs
-set tabstop=4
-set shiftwidth=4
-set expandtab
+" http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 "Nerdtree, filebrowser
 map <Leader>t :NERDTreeToggle<CR>
@@ -97,7 +96,7 @@ let g:pymode_lint = 1
 let g:pymode_lint_checkers = ["pep8","pyflakes"]
 let g:pymode_lint_write = 1
 " don't warn me about the long lines, which would just clog up error space
-let g:pymode_lint_ignore = "E501"
+let g:pymode_lint_ignore = "E501,W503,E402"
 " The big red vertical warning bar
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 1
