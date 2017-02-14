@@ -61,6 +61,7 @@ set background=dark
 
 " I prefer spaces to tabs
 " http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+" NB when set paste is on expandtab is off
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 "Nerdtree, filebrowser
@@ -96,7 +97,7 @@ let g:pymode_lint = 1
 let g:pymode_lint_checkers = ["pep8","pyflakes"]
 let g:pymode_lint_write = 1
 " don't warn me about the long lines, which would just clog up error space
-let g:pymode_lint_ignore = "E501,W503,E402"
+let g:pymode_lint_ignore = "E501,W503,E402,E0602"
 " The big red vertical warning bar
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 1
@@ -116,7 +117,7 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " autofold code (1 or 0)
 " use zo/zc to open/close folds
-let g:pymode_folding = 1
+let g:pymode_folding = 0
 
 " Quicker save \s
 " nb shift zz too
@@ -135,14 +136,14 @@ inoremap kj <Esc>
 set pastetoggle=<Leader>p
 
 " Disable arrow keys to train me to use hjkl
-" inoremap  <Up>     <NOP>
-" inoremap  <Down>   <NOP>
-" inoremap  <Left>   <NOP>
-" inoremap  <Right>  <NOP>
-" noremap   <Up>     <NOP>
-" noremap   <Down>   <NOP>
-" noremap   <Left>   <NOP>
-" noremap   <Right>  <NOP>
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 
 ".vimrc (jb js beautify, hb html beautify, cb css beautify)(but these will
 "only define these commands if filetype matches.....I want all commands when
